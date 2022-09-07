@@ -1,1 +1,33 @@
-<p>main works!</p>
+<header>
+  <h1>Berries list</h1>
+</header>
+<app-info-card-berries [berryName]="berrySelectName ? berrySelectName : ''"></app-info-card-berries>
+<div class="container">
+  <ul>
+    <li (click)="getBerryInfo(berry.name); triggerModal(modalData)" *ngFor="let berry of berries"><b>{{berry.name}}</b></li>
+  </ul>
+</div>
+
+<!-- *********  MODAL ********-->
+
+<ng-template #modalData let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title"><b>{{berrySelectInfo.name}}</b></h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>id: {{berrySelectInfo.id}}</p>
+    <p>size: {{berrySelectInfo.size}}</p>
+    <p>smoothness: {{berrySelectInfo.smoothness}}</p>
+    <p>growth_time: {{berrySelectInfo.growth_time}}</p>
+    <p>max_harvest: {{berrySelectInfo.max_harvest}}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn bg-success" (click)="modal.close('Ok click'); berrySelectName=berrySelectInfo.name">Выбрать</button>
+    <button type="button" class="btn bg-light" (click)="modal.close('Save click')">Закрыть</button>
+  </div>
+</ng-template>
+
+

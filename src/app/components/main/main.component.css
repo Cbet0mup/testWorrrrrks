@@ -1,0 +1,20 @@
+header {
+  padding: 20px 0px;
+  text-align: center;
+  background-color: lightgreen;
+}
+header h1 {
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 3px;
+}
+ul {
+  margin: 10px;
+  text-align: center;
+
+}
+li {
+  border: 1px solid darkblue;
+  width: 200px;
+  margin-top: 5px;
+}
